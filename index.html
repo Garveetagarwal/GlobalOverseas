@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Excellence - Your Study Abroad Partner</title>
+
+    <title>Study Abroad & Student Visa Consultants in Hyderabad | Global Excellence</title>
+    <meta name="description" content="Expert student visa consultants in Hyderabad. Global Excellence offers guidance for Telangana & AP students aiming to study in the USA, UK, Germany & Europe. Start your journey!">
+    <meta name="keywords" content="study abroad, student visa consultants, Hyderabad,
+     Telangana, AP, USA, UK, Germany, Europe, Global Excellence">
+    <meta name="author" content="Global Excellence Education Consultants">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.globalexcellenceedu.com/"> <meta property="og:title" content="Global Excellence - Your Study Abroad Partner">
+    <meta property="og:description" content="Expert guidance for your international education journey. University selection, visa help, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.globalexcellenceedu.com/"> <meta property="og:image" content="https://www.globalexcellenceedu.com/og-image.jpg"> <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #F3F4F6; /* Tailwind gray-100 */
+        }
+
+        /* Scrolled Header Styling & Hide/Show Logic */
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+        #site-logo.logo-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #site-logo {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Styles for scroll-triggered animations */
+        .scroll-animate-hidden {
+            opacity: 0;
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .scroll-animate-visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
+        }
+
+        /* Initial states for different animated elements */
+        /* About Us - Header */
+        #about-title-container.scroll-animate-hidden { transform: translateY(-40px); }
+        #about-decorative-svg.scroll-animate-hidden { opacity: 0; transform: rotate(-15deg) scale(0.8); }
+        #about-decorative-svg.scroll-animate-visible { opacity: 0.10; transform: rotate(12deg) scale(1); }
+        #about-intro-subtitle.scroll-animate-hidden { transform: translateY(40px); }
+
+        /* About Us - Mission Block */
+        #about-mission-text.scroll-animate-hidden { transform: translateX(-50px); }
+        #about-mission-image.scroll-animate-hidden { transform: translateX(50px) scale(0.95); }
+
+        /* About Us - Approach Block */
+        #about-approach-image.scroll-animate-hidden { transform: translateX(-50px) scale(0.95); }
+        #about-approach-text.scroll-animate-hidden { transform: translateX(50px); }
+
+        /* Staggered animation for feature list items */
+        .feature-item.scroll-animate-hidden { transform: translateY(30px); }
+
+        /* University Partners Section */
+        #university-partners-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #university-partners-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        #university-logos-marquee-container.scroll-animate-hidden { transform: translateY(50px); }
+
+        .university-logo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-shrink: 0;
+        }
+        .university-logo-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .university-logo-card img {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .university-logo-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Marquee styles for University Logos */
+        .logo-marquee-wrapper {
+            /* mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); */
+        }
+        .logo-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeAnimation 40s linear infinite;
+            will-change: transform;
+        }
+        .logo-marquee-wrapper:hover .logo-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marqueeAnimation {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Hero Carousel Container Height */
+        #carousel-main-container {
+            height: 100vh; /* Full viewport height */
+            min-height: 500px; /* Sensible minimum height */
+        }
+
+        /* Services Section */
+        #services-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #services-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        .service-card.scroll-animate-hidden { transform: translateY(50px); }
+
+        /* Success Metrics Section */
+        #metrics-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #metrics-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        .metric-card.scroll-animate-hidden { transform: translateY(50px); }
+        #metrics-cta.scroll-animate-hidden { transform: translateY(50px); }
+
+        /* Success Stories Section */
+        #stories-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #stories-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        .story-card.scroll-animate-hidden { transform: translateY(50px); }
+
+        /* Coaching Section */
+        #coaching-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #coaching-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        .coaching-card.scroll-animate-hidden { transform: translateY(50px); }
+        #coaching-cta.scroll-animate-hidden { transform: translateY(50px); }
+
+        /* Process Section */
+        #process-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #process-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        .process-step-card.scroll-animate-hidden { transform: translateY(50px); }
+
+        /* FAQs Section */
+        #faqs-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #faqs-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        .faq-item.scroll-animate-hidden { transform: translateY(40px); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding-bottom 0.4s ease-out, margin-top 0.4s ease-out;
+            padding-bottom: 0;
+            margin-top: 0;
+        }
+        .faq-item.active .faq-answer {
+            /* max-height will be set by JS to scrollHeight */
+            padding-bottom: 1.5rem; /* py-6 */
+            margin-top: 0.75rem; /* mt-3 */
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* FAQ Modal Styles */
+        #faq-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            display: none; /* Initially hidden */
+            align-items: center;
+            justify-content: center;
+        }
+        #faq-modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 56rem; /* max-w-3xl */
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        #faq-modal-overlay.active {
+            display: flex;
+        }
+        #faq-modal-overlay.active #faq-modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        #faq-modal-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.75rem;
+            color: #6B7280; /* gray-500 */
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        #faq-modal-close-btn:hover {
+            color: #1F2937; /* gray-800 */
+        }
+
+        /* Countries Section Styles */
+        .country-card {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .country-card:hover {
+            transform: translateY(-5px);
+        }
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+            transition: background 0.3s ease;
+        }
+        .country-card-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Country Modal Styles */
+        #country-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        #country-modal-content {
+            background-color: #F9FAFB; /* gray-50 */
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 64rem; /* max-w-4xl */
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            overflow: hidden;
+        }
+        #country-modal-overlay.active {
+            display: flex;
+        }
+        #country-modal-overlay.active #country-modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        #country-modal-header {
+            position: relative;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+        #country-modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 9999px;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #country-modal-close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        #country-modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+         .country-modal-body-content ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .country-modal-body-content li {
+            margin-bottom: 1rem;
+        }
+        .country-modal-body-content h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #1f2937;
+        }
+        .country-modal-body-content h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+
+        /* Essay Assistant Section */
+        #essay-assistant-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #essay-assistant-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        #essay-input-container.scroll-animate-hidden { transform: scale(0.95); }
+
+        /* Contact Form Section */
+        #contact-form-title.scroll-animate-hidden { transform: translateY(-30px); }
+        #contact-form-subtitle.scroll-animate-hidden { transform: translateY(30px); }
+        #contact-form-image.scroll-animate-hidden { transform: translateX(-50px) scale(0.95); }
+        #contact-form-card.scroll-animate-hidden { transform: translateX(50px); }
+
+        /* Custom select arrow for contact form */
+        .contact-form-select-arrow {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header id="main-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 ease-out">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" id="site-logo" class="flex items-center space-x-2">
+                        <svg class="h-9 w-auto text-green-500" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5L5 25L25 45L45 25L25 5Z" fill="currentColor" />
+                            <path d="M25 15L15 25L25 35L35 25L25 15Z" fill="white" />
+                        </svg>
+                        <span class="text-2xl font-bold text-gray-800">Global <span class="text-green-500">Excellence</span></span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex md:items-center md:space-x-5 lg:space-x-7">
+                    <a href="#about" class="relative text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-green-100 hover:text-green-700 hover:shadow-sm">About Us</a>
+                    <a href="#services" class="relative text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-green-100 hover:text-green-700 hover:shadow-sm">Services</a>
+                    <a href="#universities" class="relative text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-green-100 hover:text-green-700 hover:shadow-sm">Universities</a>
+                    <a href="#process" class="relative text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-green-100 hover:text-green-700 hover:shadow-sm">Process</a>
+                    <a href="#faqs" class="relative text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-green-100 hover:text-green-700 hover:shadow-sm">FAQs</a>
+                    <a href="#contact-form-section" class="bg-green-500 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 ml-4">
+                        Contact Us
+                    </a>
+                </div>
+
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-green-500 p-2 rounded-md focus:outline-none">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-4 pt-3 pb-4 space-y-2">
+                <a href="#about" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">About Us</a>
+                <a href="#services" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">Services</a>
+                <a href="#universities" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">Universities</a>
+                <a href="#process" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">Process</a>
+                <a href="#success-stories" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">Success Stories</a>
+                <a href="#coaching" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">Coaching</a>
+                <a href="#faqs" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">FAQs</a>
+                <a href="#essay-assistant" class="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-500 hover:bg-gray-100 transition-colors duration-300">Essay Assistant</a>
+                <a href="#contact-form-section" class="block w-full text-center bg-green-500 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 mt-2">
+                     Contact Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-gray-900 text-gray-50">
+        <div class="relative w-full overflow-hidden" id="carousel-main-container">
+            <div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-images">
+                <div class="w-full flex-shrink-0 h-full relative flex items-center justify-center text-center p-8">
+                    <img src="/images/hero.webp" alt="Hero image for unlocking global education potential" class="absolute inset-0 w-full h-full object-cover z-0">
+
+                    <div class="absolute inset-0 bg-black/60 z-10"></div>
+                    <div class="relative z-20 max-w-3xl">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Achieve Your Global Ambition with Expert Guidance
+                            </h1>
+                        <p class="mt-4 md:mt-6 text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+                           Discover your ideal study destination, from the USA to the UK, or high-success-rate options like Poland, with tailored support from our ToliChowki, Hyderabad team.
+                    </p>
+                        <div class="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4">
+                            <a href="#contact-form-section" class="bg-green-500 text-white px-10 py-4 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Get Started</a>
+                            <a href="#services" class="bg-transparent border-2 border-gray-400 text-gray-200 px-10 py-4 text-lg font-semibold rounded-lg hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300">Explore Services</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 h-full relative flex items-center justify-center text-center p-8">
+                    <img src="images/GermanHero.webp" alt="Hero image for navigating your path with expert guidance" class="absolute inset-0 w-full h-full object-cover z-0" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 z-10"></div>
+                    <div class="relative z-20 max-w-3xl">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"> Simplify Your Path to Germany from Hyderabad
+                            </h1>
+                        <p class="mt-4 md:mt-6 text-lg md:text-xl text-gray-300 max-w-xl mx-auto"> 
+                           From the mandatory APS certificate to the blocked account, we provide expert, step-by-step guidance for students from Telangana and Andhra Pradesh.
+                        <div class="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4">
+                            <a href="#process" class="bg-green-500 text-white px-10 py-4 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Our Process</a>
+                            <a href="#faqs" class="bg-transparent border-2 border-gray-400 text-gray-200 px-10 py-4 text-lg font-semibold rounded-lg hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300">View FAQs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 h-full relative flex items-center justify-center text-center p-8">
+                    <img src="/images/Celebrate.webp" alt="Hero image for achieving dreams at worldwide destinations" class="absolute inset-0 w-full h-full object-cover z-0" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 z-10"></div>
+                    <div class="relative z-20 max-w-3xl">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Achieve Your Dreams, Worldwide</h1>
+                        <p class="mt-4 md:mt-6 text-lg md:text-xl text-gray-300 max-w-xl mx-auto">Connect with prestigious institutions and cultures across the globe.</p>
+                        <div class="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4">
+                            <a href="#universities" class="bg-green-500 text-white px-10 py-4 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Find Universities</a>
+                            <a href="#contact-form-section" class="bg-transparent border-2 border-gray-400 text-gray-200 px-10 py-4 text-lg font-semibold rounded-lg hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300">Consult Free</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 h-full relative flex items-center justify-center text-center p-8">
+                    <img src="/images/Hero 3.webp" alt="Hero image illustrating the start of a success story" class="absolute inset-0 w-full h-full object-cover z-0" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 z-10"></div>
+                    <div class="relative z-20 max-w-3xl">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"> Your Trusted Guide for US Visas in Hyderabad
+                        </h1>
+                        <p class="mt-4 md:mt-6 text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+                            
+                           Specializing in helping students from Telangana & Andhra Pradesh  overcome the tough F1 visa interview and avoid common rejection pitfalls at the Hyderabad consulate.	
+                            .</p>
+                        <div class="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4">
+                            <a href="#success-stories" class="bg-green-500 text-white px-10 py-4 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Read Stories</a>
+                            <a href="#contact-form-section" class="bg-transparent border-2 border-gray-400 text-gray-200 px-10 py-4 text-lg font-semibold rounded-lg hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300">Talk to Experts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="carousel-dots-container" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
+            <button id="prev-slide-btn" class="absolute top-1/2 -translate-y-1/2 left-6 bg-white/10 text-white p-3 rounded-full cursor-pointer z-20 hover:bg-white/25 transition-colors"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-slide-btn" class="absolute top-1/2 -translate-y-1/2 right-6 bg-white/10 text-white p-3 rounded-full cursor-pointer z-20 hover:bg-white/25 transition-colors"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    <section id="about" class="py-20 md:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-base font-semibold text-green-600 tracking-wider uppercase">Our Philosophy</h2>
+                    <p class="mt-2 text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">A Decade of Dedication to Your Success</p>
+                    <p class="mt-4 text-xl text-gray-600">
+                        For over 10 years, we've been more than just consultants. We are your trusted partners, deeply committed to turning the study abroad aspirations of students from Telangana and Andhra Pradesh into reality.
+                    </p>
+                </div>
+
+                <!-- Three-Card Layout -->
+                <div class="mt-16 grid gap-8 md:grid-cols-3 md:gap-x-8">
+                    <!-- Card 1: Empathy -->
+                    <div class="p-8 bg-slate-50 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-animate-hidden" style="transition-delay: 0.1s;">
+                        <div class="inline-block bg-green-100 text-green-600 p-4 rounded-xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">We Understand Your Journey</h3>
+                        <p class="mt-2 text-gray-600">We understand the unique challenges our students face—from the tough US visa interviews at the Hyderabad consulate to the specific requirements of European universities.</p>
+                    </div>
+
+                    <!-- Card 2: Expertise -->
+                    <div class="p-8 bg-slate-50 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-animate-hidden" style="transition-delay: 0.2s;">
+                        <div class="inline-block bg-green-100 text-green-600 p-4 rounded-xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">A Decade of Expertise</h3>
+                        <p class="mt-2 text-gray-600">Our decade of experience means we have the deep knowledge to simplify the most complex processes, including the German APS certification and UK credibility interviews.</p>
+                    </div>
+
+                    <!-- Card 3: Success -->
+                    <div class="p-8 bg-slate-50 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-animate-hidden" style="transition-delay: 0.3s;">
+                        <div class="inline-block bg-green-100 text-green-600 p-4 rounded-xl mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0122 12c0 3.314-2.03 6.2-5.014 7.486A12.008 12.008 0 0117.657 18.657z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Your Ambition, Our Mission</h3>
+                        <p class="mt-2 text-gray-600">We believe success is empowering you with the confidence and preparation to not only get an admission but to thrive. Your global ambition is our guiding mission.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div id="about-mission-text" class="scroll-animate-hidden">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Our Mission: <span class="text-green-600">Your Global Success</span></h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-5">
+                            Your dream of a global education is our mission. We are dedicated to guiding students from Hyderabad and across Telangana and Andhra Pradesh through their entire international journey. We understand that the path to studying abroad is filled with challenges—from choosing the right university to navigating the complexities of visa applications at consulates known for their strict scrutiny. Our purpose is to demystify this process with personalized, expert guidance.
+                            We believe success is more than just an admission letter. It's about empowering you with the confidence and preparation needed to excel in your visa interview, secure the necessary financial documents, and seamlessly transition to life in a new country. We don't just open the door to a foreign university; we lay the foundation for your global success.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                           With a team of experienced counselors and a vast network of partner universities worldwide, we simplify the complex process of international admissions, making your dream of studying abroad a reality.
+                        </p>
+                    </div>
+                    <div id="about-mission-image" class="scroll-animate-hidden rounded-xl overflow-hidden shadow-2xl">
+                        <img src="/images/Our Mission.webp" alt="Illustrative image representing Global Excellence's mission and vision" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-16 md:py-24 bg-slate-50">
+             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div id="about-approach-image" class="order-1 md:order-none scroll-animate-hidden rounded-xl overflow-hidden shadow-2xl">
+                         <img src="/images/Dedicated.webp" alt="Image showing dedicated approach of Global Excellence counselors" class="w-full h-full object-cover">
+                    </div>
+                    <div id="about-approach-text" class="order-2 scroll-animate-hidden">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-8">Dedicated to <span class="text-green-600">Your Journey</span></h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                           We are dedicated to fostering global citizens equipped with the knowledge and skills to thrive. Our approach is built on providing comprehensive, step-by-step support tailored to your unique profile. From program selection to pre-departure, we're with you every step of the way.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="feature-item flex items-start scroll-animate-hidden" style="transition-delay: 0.1s;">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="ml-5">
+                                    <h4 class="text-xl font-semibold text-gray-800">Personalized Counseling</h4>
+                                    <p class="text-gray-600 mt-1"> Tailored, one-on-one advice that aligns your unique academic profile and career goals with the best possible global opportunities.
+                                        
+                                </div>
+                            </div>
+                             <div class="feature-item flex items-start scroll-animate-hidden" style="transition-delay: 0.2s;">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <div class="ml-5">
+                                    <h4 class="text-xl font-semibold text-gray-800">Strategic University Shortlisting.
+</h4>
+                                    <p class="text-gray-600 mt-1">Beyond our extensive network, we strategically identify and target universities where your profile has the highest chance of success, including those with strong programs in STEM, engineering, and management.
+                                </div>
+                            </div>
+                             <div class="feature-item flex items-start scroll-animate-hidden" style="transition-delay: 0.3s;">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                                   <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <div class="ml-5">
+                                    <h4 class="text-xl font-semibold text-gray-800">Expert Visa & Financial Guidance
+</h4>
+                                    <p class="text-gray-600 mt-1">We specialize in simplifying the most complex visa processes. Our expertise covers everything from acing the UK credibility interview  and preparing for the US F1 visa at the Hyderabad consulate  to navigating the German APS certificate and blocked account requirements.                               </div>
+                            </div>
+                             <div class="feature-item flex items-start scroll-animate-hidden" style="transition-delay: 0.4s;">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                                    <i class="fas fa-plane-departure"></i>
+                                </div>
+                                <div class="ml-5">
+                                    <h4 class="text-xl font-semibold text-gray-800">Comprehensive Pre-Departure Support:
+</h4>
+                                    <p class="text-gray-600 mt-1">Our commitment continues after your visa is approved. We provide comprehensive guidance on accommodation, travel, and cultural adaptation to ensure you are fully prepared for life abroad.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="universities" class="py-20 md:py-28 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 id="university-partners-title" class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 scroll-animate-hidden">
+                    Our <span class="text-green-600">Esteemed University Partners</span>
+                </h2>
+                <p id="university-partners-subtitle" class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto scroll-animate-hidden">We proudly partner with leading universities worldwide to offer you the best educational opportunities.</p>
+            </div>
+
+            <div id="university-logos-marquee-container" class="mt-16 scroll-animate-hidden">
+                <div class="logo-marquee-wrapper relative overflow-hidden py-4 group">
+                    <div class="logo-marquee-track flex space-x-8">
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="/images/uNIVERSITY1.webp" alt="University of Edinburgh Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">University of Edinburgh</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E8F5E9/388E3C?text=Johns+Hopkins" alt="Johns Hopkins University Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">Johns Hopkins University</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/FCE4EC/C2185B?text=Uni+Melbourne" alt="The University of Melbourne Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">The University of Melbourne</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/FFF3E0/F57C00?text=NUS" alt="National University of Singapore Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">National University of Singapore</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E3F2FD/1976D2?text=Uni+Manchester" alt="The University of Manchester Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">The University of Manchester</span>
+                        </div>
+                         <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/F3E5F5/7B1FA2?text=UCLA" alt="UCLA Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">UCLA</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E0F7FA/0097A7?text=UNSW+Sydney" alt="UNSW Sydney Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">UNSW Sydney</span>
+                        </div>
+                         <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/FCE4EC/AD1457?text=Kings+College" alt="King's College London Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">King's College London</span>
+                        </div>
+
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E0F2F7/0288D1?text=Uni+Edinburgh" alt="University of Edinburgh Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">University of Edinburgh</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E8F5E9/388E3C?text=Johns+Hopkins" alt="Johns Hopkins University Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">Johns Hopkins University</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/FCE4EC/C2185B?text=Uni+Melbourne" alt="The University of Melbourne Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">The University of Melbourne</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/FFF3E0/F57C00?text=NUS" alt="National University of Singapore Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">National University of Singapore</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E3F2FD/1976D2?text=Uni+Manchester" alt="The University of Manchester Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">The University of Manchester</span>
+                        </div>
+                         <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/F3E5F5/7B1FA2?text=UCLA" alt="UCLA Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">UCLA</span>
+                        </div>
+                        <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/E0F7FA/0097A7?text=UNSW+Sydney" alt="UNSW Sydney Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">UNSW Sydney</span>
+                        </div>
+                         <div class="university-logo-card flex-none bg-slate-50 rounded-xl p-6 shadow-lg w-48 text-center">
+                            <img src="https://placehold.co/150x80/FCE4EC/AD1457?text=Kings+College" alt="King's College London Logo" class="h-16 mx-auto mb-3 object-contain">
+                            <span class="text-sm font-medium text-gray-600">King's College London</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 md:py-28 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 id="services-title" class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 scroll-animate-hidden">
+                    Our Comprehensive <span class="text-green-600">Services</span>
+                </h2>
+                <p id="services-subtitle" class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Tailored support for every step of your study abroad adventure.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.05s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">University Selection</h3>
+                    <p class="text-gray-600 leading-relaxed">Expert guidance to choose universities and programs aligned with your academic and career aspirations.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.1s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Application Assistance</h3>
+                    <p class="text-gray-600 leading-relaxed">Step-by-step support with forms, essays, SOPs, and LORs for a strong submission.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.15s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Visa & Pre-Departure</h3>
+                    <p class="text-gray-600 leading-relaxed">Guidance through visa processes and essential pre-departure information for life abroad.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.2s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Visit Visa Assistance</h3>
+                    <p class="text-gray-600 leading-relaxed">Assistance for parents or guardians wishing to visit students studying abroad.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.25s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">SOP & LOR Services</h3>
+                    <p class="text-gray-600 leading-relaxed">Expert review for crafting compelling Statements of Purpose and Letters of Recommendation.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.3s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Career Counseling</h3>
+                    <p class="text-gray-600 leading-relaxed">Personalized guidance to identify strengths and choose a path for global success.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.35s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Education Loan Assistance</h3>
+                    <p class="text-gray-600 leading-relaxed">Guidance and support in securing education loans to finance your international studies.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.4s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                         <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Scholarship Assistance</h3>
+                    <p class="text-gray-600 leading-relaxed">Identifying and applying for scholarships to help reduce your financial burden abroad.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 scroll-animate-hidden" style="transition-delay: 0.45s;">
+                    <div class="text-green-500 mb-6 text-4xl">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">IELTS / Spoken English</h3>
+                    <p class="text-gray-600 leading-relaxed">Expert training to enhance your English proficiency for tests and communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="success-metrics" class="py-20 md:py-28 bg-gradient-to-br from-gray-800 to-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h2 id="metrics-title" class="text-4xl lg:text-5xl font-extrabold mb-4 scroll-animate-hidden">Our Winning Record</h2>
+                <p id="metrics-subtitle" class="text-xl text-gray-300 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Numbers speak louder than words. Our track record is a testament to our expertise and unwavering dedication to helping students from our region achieve their study abroad goals. These metrics reflect our commitment to excellence.
+                </p>
+            </div>
+            <div id="metrics-grid" class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="metric-card bg-gray-700/30 backdrop-blur-sm border border-gray-600/50 p-8 rounded-xl text-center scroll-animate-hidden" style="transition-delay: 0.1s;">
+                    <div class="text-green-400 text-5xl mb-5">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="text-5xl font-bold mb-2" data-target="5000">0</div>
+                    <div class="text-lg text-gray-300">Successful Admits</div>
+                </div>
+                <div class="metric-card bg-gray-700/30 backdrop-blur-sm border border-gray-600/50 p-8 rounded-xl text-center scroll-animate-hidden" style="transition-delay: 0.2s;">
+                    <div class="text-green-400 text-5xl mb-5">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="text-5xl font-bold mb-2" data-target="20">0</div>
+                    <div class="text-lg text-gray-300">Million+ Scholarships Achieved</div>
+                </div>
+                <div class="metric-card bg-gray-700/30 backdrop-blur-sm border border-gray-600/50 p-8 rounded-xl text-center scroll-animate-hidden" style="transition-delay: 0.3s;">
+                    <div class="text-green-400 text-5xl mb-5">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="text-5xl font-bold mb-2" data-target="80">0</div>
+                    <div class="text-lg text-gray-300">Cr+ Loans Sanctioned</div>
+                </div>
+                <div class="metric-card bg-gray-700/30 backdrop-blur-sm border border-gray-600/50 p-8 rounded-xl text-center scroll-animate-hidden" style="transition-delay: 0.4s;">
+                    <div class="text-green-400 text-5xl mb-5">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="text-5xl font-bold mb-2" data-target="98">0</div>
+                    <div class="text-lg text-gray-300">% Visa Success Rate</div>
+                </div>
+            </div>
+            <div id="metrics-cta" class="mt-16 text-center scroll-animate-hidden" style="transition-delay: 0.5s;">
+                <a href="#contact-form-section" class="inline-flex items-center px-10 py-4 border-2 border-green-400 text-green-400 text-lg font-semibold rounded-lg hover:bg-green-400 hover:text-gray-900 transition-colors duration-300">
+                    Explore Premium Counselling <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== UPDATED COUNTRIES SECTION START ======== -->
+    <section id="countries" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4">
+                   <span class="text-green-600">Explore</span> Study Destinations
+                </h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    Explore your study abroad options in these popular destinations.
+                </p>
+            </div>
+            <div id="countries-grid" class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Country cards will be dynamically inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+    <!-- ======== UPDATED COUNTRIES SECTION END ======== -->
+
+
+    <section id="success-stories" class="py-20 md:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 id="stories-title" class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 scroll-animate-hidden">
+                    Hear From Our <span class="text-green-600">Achievers</span>
+                </h2>
+                <p id="stories-subtitle" class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Real students, real stories, real success with Global Excellence.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div class="story-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 scroll-animate-hidden" style="transition-delay: 0.1s;">
+                    <img src="/images/Girl1.webp" alt="Photo of Priya Sharma" class="w-20 h-20 rounded-full mx-auto mb-5 border-4 border-green-200 shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-800 text-center mb-1">Priya Sharma</h3>
+                    <p class="text-sm text-green-600 font-medium text-center mb-3">MSc Computer Science, ETH Zurich</p>
+                    <div class="flex justify-center text-amber-500 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-center italic">"Global Excellence made my dream of studying in Switzerland a reality. Their counselors guided me through every step, from university selection to visa approval."</p>
+                </div>
+                <div class="story-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 scroll-animate-hidden" style="transition-delay: 0.2s;">
+                    <img src="images/bOY1.webp" alt="Photo of Rahul Patel" class="w-20 h-20 rounded-full mx-auto mb-5 border-4 border-green-200 shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-800 text-center mb-1">Rahul Patel</h3>
+                    <p class="text-sm text-green-600 font-medium text-center mb-3">MBA, Copenhagen Business School</p>
+                     <div class="flex justify-center text-amber-500 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-center italic">"The loan processing assistance was invaluable. Global Excellence helped me secure funding for my MBA, making my international education possible."</p>
+                </div>
+                <div class="story-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 scroll-animate-hidden" style="transition-delay: 0.3s;">
+                    <img src="/images/Girl2.webp" alt="Photo of Dimpy Mehta" class="w-20 h-20 rounded-full mx-auto mb-5 border-4 border-green-200 shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-800 text-center mb-1">Dimpy Mehta</h3>
+                    <p class="text-sm text-green-600 font-medium text-center mb-3">MBA, University of Melbourne</p>
+                    <div class="flex justify-center text-amber-500 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-center italic">"Global Excellence helped me every step of the way—from choosing the right university to acing my visa interview. Their mentorship and support were game-changing!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="coaching" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 id="coaching-title" class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 scroll-animate-hidden">
+                    Inhouse Coaching <span class="text-green-600">Excellence</span>
+                </h2>
+                <p id="coaching-subtitle" class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Achieve the scores you need for top universities and master the language skills for a confident life abroad. Our expert trainers offer comprehensive coaching for IELTS, TOEFL, GRE, and GMAT, as well as specialized German language courses to meet visa requirements.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="coaching-card text-center p-8 bg-slate-50/70 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 scroll-animate-hidden" style="transition-delay: 0.1s;">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Expert Trainers</h3>
+                    <p class="text-gray-600 leading-relaxed">Learn from certified and experienced instructors dedicated to your success.</p>
+                </div>
+                <div class="coaching-card text-center p-8 bg-slate-50/70 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 scroll-animate-hidden" style="transition-delay: 0.2s;">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Comprehensive Curriculum</h3>
+                    <p class="text-gray-600 leading-relaxed">Structured courses covering all modules of IELTS, PTE, and Spoken English.</p>
+                </div>
+                <div class="coaching-card text-center p-8 bg-slate-50/70 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 scroll-animate-hidden" style="transition-delay: 0.3s;">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Interactive Sessions</h3>
+                    <p class="text-gray-600 leading-relaxed">Engage in dynamic classes with personalized feedback and practice.</p>
+                </div>
+                <div class="coaching-card text-center p-8 bg-slate-50/70 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 scroll-animate-hidden" style="transition-delay: 0.4s;">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Proven Results</h3>
+                    <p class="text-gray-600 leading-relaxed">Achieve target scores with our effective teaching and support.</p>
+                </div>
+                
+            </div>
+            <div id="coaching-cta" class="mt-16 text-center scroll-animate-hidden" style="transition-delay: 0.5s;">
+                <a href="#contact-form-section" class="bg-green-500 text-white px-10 py-4 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 inline-flex items-center">
+                    Enroll Now <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 md:py-28 bg-gradient-to-br from-green-500 to-teal-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+             </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h2 id="process-title" class="text-4xl lg:text-5xl font-extrabold mb-4 scroll-animate-hidden">4 Steps to Your <span class="text-green-200">Dream Destination</span></h2>
+                <p id="process-subtitle" class="text-xl text-green-100 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Our streamlined process makes studying abroad simple and stress-free.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="process-step-card bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl text-center hover:bg-white/20 transition-all duration-300 scroll-animate-hidden" style="transition-delay: 0.1s;">
+                    <div class="text-6xl font-bold text-green-300/50 mb-4">01</div>
+                    <div class="text-green-300 text-4xl mb-5">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Consultation</h3>
+                    <p class="text-green-50 leading-relaxed text-sm">Personalized one-on-one sessions to understand your academic goals and career aspirations.</p>
+                </div>
+                <div class="process-step-card bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl text-center hover:bg-white/20 transition-all duration-300 scroll-animate-hidden" style="transition-delay: 0.2s;">
+                    <div class="text-6xl font-bold text-green-300/50 mb-4">02</div>
+                    <div class="text-green-300 text-4xl mb-5">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">University Selection</h3>
+                    <p class="text-green-50 leading-relaxed text-sm">Identifying the best-fit universities and programs based on your profile and preferences.</p>
+                </div>
+                <div class="process-step-card bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl text-center hover:bg-white/20 transition-all duration-300 scroll-animate-hidden" style="transition-delay: 0.3s;">
+                    <div class="text-6xl font-bold text-green-300/50 mb-4">03</div>
+                    <div class="text-green-300 text-4xl mb-5">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Application & Visa</h3>
+                    <p class="text-green-50 leading-relaxed text-sm">Comprehensive support with application submission, visa documentation, and interview preparation.</p>
+                </div>
+                <div class="process-step-card bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl text-center hover:bg-white/20 transition-all duration-300 scroll-animate-hidden" style="transition-delay: 0.4s;">
+                    <div class="text-6xl font-bold text-green-300/50 mb-4">04</div>
+                    <div class="text-green-300 text-4xl mb-5">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Pre-Departure</h3>
+                    <p class="text-green-50 leading-relaxed text-sm">Guidance on travel, accommodation, and essential preparations for your new life abroad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faqs" class="py-20 md:py-28 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 id="faqs-title" class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 scroll-animate-hidden">
+                    Frequently Asked <span class="text-green-600">Questions</span>
+                </h2>
+                <p id="faqs-subtitle" class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Find quick answers to common queries about studying abroad with Global Excellence.
+                </p>
+            </div>
+            <div class="mt-16 max-w-4xl mx-auto space-y-6">
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate-hidden" style="transition-delay: 0.1s;">
+                    <button class="faq-question w-full flex justify-between items-center text-left p-6 focus:outline-none">
+                        <span class="text-xl font-semibold text-gray-800">What services does Global Excellence offer?</span>
+                        <i class="faq-icon fas fa-chevron-down text-green-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-700 leading-relaxed">
+                        <p class="pt-1">Global Excellence offers a wide range of services including university selection, application assistance, visa guidance, education loan and scholarship assistance, career counseling, accommodation support, and pre-departure orientation.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate-hidden" style="transition-delay: 0.2s;">
+                    <button class="faq-question w-full flex justify-between items-center text-left p-6 focus:outline-none">
+                        <span class="text-xl font-semibold text-gray-800">How do I choose the right university and course?</span>
+                        <i class="faq-icon fas fa-chevron-down text-green-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-700 leading-relaxed">
+                        <p class="pt-1">Our expert counselors provide personalized guidance, taking into account your academic background, career goals, preferences, and financial considerations to help you select the best-fit university and course.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate-hidden" style="transition-delay: 0.3s;">
+                    <button class="faq-question w-full flex justify-between items-center text-left p-6 focus:outline-none">
+                        <span class="text-xl font-semibold text-gray-800">Can you help with scholarship applications?</span>
+                        <i class="faq-icon fas fa-chevron-down text-green-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-700 leading-relaxed">
+                        <p class="pt-1">Yes, we provide comprehensive scholarship assistance, including identifying suitable scholarships, guiding you through the application process, and helping you prepare compelling essays and documents to maximize your chances of success.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate-hidden" style="transition-delay: 0.4s;">
+                    <button class="faq-question w-full flex justify-between items-center text-left p-6 focus:outline-none">
+                        <span class="text-xl font-semibold text-gray-800">Do you offer coaching for English proficiency tests like IELTS/PTE?</span>
+                        <i class="faq-icon fas fa-chevron-down text-green-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-700 leading-relaxed">
+                        <p class="pt-1">Absolutely! We have inhouse coaching for Spoken English, IELTS, and PTE, led by expert trainers. Our programs are designed to help you achieve your target scores with comprehensive curriculum and interactive sessions.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-xl shadow-lg scroll-animate-hidden" style="transition-delay: 0.5s;">
+                    <button class="faq-question w-full flex justify-between items-center text-left p-6 focus:outline-none">
+                        <span class="text-xl font-semibold text-gray-800">What is the role of the AI-Powered Essay Assistant?</span>
+                         <i class="faq-icon fas fa-chevron-down text-green-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-700 leading-relaxed">
+                        <p class="pt-1">Our AI-Powered Essay Assistant provides instant feedback and suggestions for your university essays and Statements of Purpose (SOPs). It helps you refine your writing for clarity, coherence, impact, and grammatical correctness, giving you an edge in your applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button id="learn-more-faq-btn" class="bg-green-500 text-white px-8 py-4 text-lg rounded-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                    Learn More FAQ
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="faq-modal-overlay">
+        <div id="faq-modal-content">
+            <i id="faq-modal-close-btn" class="fas fa-times"></i>
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-6">More Frequently Asked Questions</h2>
+            <div id="more-faqs-container" class="space-y-4">
+                </div>
+        </div>
+    </div>
+
+
+    <section id="essay-assistant" class="py-20 md:py-28 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 id="essay-assistant-title" class="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 scroll-animate-hidden">
+                    Refine Your Essays with <span class="text-green-600">AI Precision</span> ✨
+                </h2>
+                <p id="essay-assistant-subtitle" class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto scroll-animate-hidden">
+                    Get instant, constructive feedback on your university essays and Statements of Purpose.
+                </p>
+            </div>
+            <div id="essay-input-container" class="mt-16 bg-slate-50 p-8 md:p-12 rounded-xl shadow-xl scroll-animate-hidden">
+                <label for="essay-input" class="block text-lg font-semibold text-gray-700 mb-4">
+                    Paste your essay or SOP draft here:
+                </label>
+                <textarea id="essay-input" rows="12" class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-shadow text-gray-700 placeholder-gray-400" placeholder="e.g., 'My lifelong passion for astrophysics began during a visit to the local planetarium...'"></textarea>
+
+                <button id="generate-feedback-btn" class="mt-8 w-full flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                    <i class="fas fa-magic mr-3"></i> Get AI Feedback & Suggestions
+                </button>
+
+                <div id="loading-indicator" class="mt-6 text-center text-green-600 hidden">
+                    <i class="fas fa-spinner fa-spin text-2xl mr-2"></i> Analyzing your text... please wait.
+                </div>
+
+                <div id="essay-output" class="mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow-inner hidden prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">AI Feedback:</h3>
+                    <div id="output-content" class="text-gray-700 space-y-3">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form-section" class="py-20 md:py-28 bg-gradient-to-r from-green-500 to-teal-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="text-center md:text-left">
+                    <h2 id="contact-form-title" class="text-4xl lg:text-5xl font-extrabold mb-6 scroll-animate-hidden">Let's Plan Your <span class="text-green-200">Global Future</span></h2>
+                    <p id="contact-form-subtitle" class="text-xl text-green-100 mb-8 md:mb-10 scroll-animate-hidden">
+                      Your journey starts with a conversation. Fill out the form for a free consultation, or visit our Tolichowki,Hyderabad office to meet our counselors in person. Let's build your global future, together.
+                    </p>
+                    <div id="contact-form-image" class="scroll-animate-hidden rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto md:mx-0">
+                        <img src="images/ContactUS.webp" alt="Students planning their study abroad journey" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div id="contact-form-card" class="bg-white p-8 md:p-10 rounded-xl shadow-2xl scroll-animate-hidden">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" id="contact-form-id">
+                        <input type="hidden" name="access_key" value="9756687a-e949-4076-aae5-dbda1b16617c">
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value="New Submission from contact form"
+                        />
+                        <input type="checkbox" name="botcheck" id="" style="display: none;" />
+
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get in Touch</h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
+                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
+                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" name="email" id="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="mobile-number" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                            <input type="tel" name="mobile-number" id="mobile-number" autocomplete="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900" placeholder="+1 (555) 123-4567">
+                        </div>
+                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                            <div>
+                                <label for="study-destination" class="block text-sm font-medium text-gray-700">Preferred Study Destination</label>
+                                <select id="study-destination" name="study-destination" class="mt-1 block w-full appearance-none px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900 contact-form-select-arrow">
+                                    <option value="">Select Destination</option>
+                                    <option value="usa">USA</option>
+                                    <option value="uk">UK</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="australia">Australia</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="course" class="block text-sm font-medium text-gray-700">Course of Interest</label>
+                                <input type="text" name="course" id="course" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900" placeholder="e.g., Computer Science">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                            <div>
+                                <label for="study-month" class="block text-sm font-medium text-gray-700">Preferred Intake Month</label>
+                                <select id="study-month" name="study-month" class="mt-1 block w-full appearance-none px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900 contact-form-select-arrow">
+                                    <option value="">Select Month</option>
+                                    <option value="jan">January</option> <option value="feb">February</option> <option value="mar">March</option> <option value="apr">April</option> <option value="may">May</option> <option value="jun">June</option> <option value="jul">July</option> <option value="aug">August</option> <option value="sep">September</option> <option value="oct">October</option> <option value="nov">November</option> <option value="dec">December</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="study-year" class="block text-sm font-medium text-gray-700">Preferred Intake Year</label>
+                                <select id="study-year" name="study-year" class="mt-1 block w-full appearance-none px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 text-gray-900 contact-form-select-arrow">
+                                    <option value="">Select Year</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <input id="consent" name="consent" type="checkbox" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="consent" class="font-medium text-gray-700">I agree to be contacted by Global Excellence via Call, WhatsApp, Email for assistance.</label>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-semibold text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors">
+                                Submit Your Request
+                            </button>
+                        </div>
+                        <p class="text-base text-center text-gray-400" id="result"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 xl:gap-12">
+                <div class="space-y-4">
+                     <a href="#" class="flex items-center space-x-2">
+                        <svg class="h-9 w-auto text-green-500" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5L5 25L25 45L45 25L25 5Z" fill="currentColor"></path>
+                            <path d="M25 15L15 25L25 35L35 25L25 15Z" fill="white"></path>
+                        </svg>
+                        <span class="text-xl font-bold text-white">Global <span class="text-green-500">Excellence</span></span>
+                    </a>
+                    <p class="text-sm leading-relaxed">Your trusted partner for study abroad dreams. We provide expert guidance for a seamless international education experience.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white tracking-wider uppercase mb-5">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-green-400 transition-colors">Services</a></li>
+                        <li><a href="#universities" class="hover:text-green-400 transition-colors">Universities</a></li>
+                        <li><a href="#process" class="hover:text-green-400 transition-colors">Our Process</a></li>
+                        <li><a href="#faqs" class="hover:text-green-400 transition-colors">FAQs</a></li>
+                         <li><a href="#contact-form-section" class="hover:text-green-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white tracking-wider uppercase mb-5">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-400"></i>
+                            <span>1st Floor, 8-1-168, Surya Nagar, ToliChowki, Hyderabad, Telangana 500008</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-green-400"></i>
+                            <a href="mailto:info@globalexcellenceedu.com"
+                             class="hover:text-green-400 transition-colors">info@globalexcellenceedu.com</a>
+                        </li>
+                        <li class="flex items-start">
+                           <i class="fas fa-phone-alt mt-1 mr-3 text-green-400"></i>
+                           <a href="tel:+919849373332" class="hover:text-green-400 transition-colors">+91 98493 73332</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white tracking-wider uppercase mb-5">Follow Us</h3>
+                    <div class="flex space-x-5">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors text-2xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm">&copy; <span id="current-year"></span> Global Excellence. All rights reserved. Designed with passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======== UPDATED COUNTRY MODAL START ======== -->
+    <div id="country-modal-overlay">
+        <div id="country-modal-content">
+            <div id="country-modal-header">
+                <i id="country-modal-close-btn" class="fas fa-times"></i>
+            </div>
+            <div id="country-modal-body">
+                <div id="country-modal-data-container" class="country-modal-body-content">
+                    <!-- Dynamic Content Will Be Injected Here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ======== UPDATED COUNTRY MODAL END ======== -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            const currentYearElement = document.getElementById('current-year');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ?
+                        `<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>` :
+                        `<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+                });
+            }
+
+            // Toast Notification Function (if you plan to use it for form submission feedback)
+            function showToast(message, type = 'success') { // Added type for different toast styles
+                const toast = document.createElement('div');
+                toast.textContent = message;
+                let bgColor = 'bg-gray-700';
+                if (type === 'error') bgColor = 'bg-red-600';
+                if (type === 'success') bgColor = 'bg-green-600';
+
+                toast.className = `fixed bottom-5 right-5 ${bgColor} text-white px-4 py-3 rounded-lg shadow-xl transition-all duration-300 ease-out opacity-0 transform translate-y-2 z-[100]`;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                }, 10);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(2px)';
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            document.body.removeChild(toast);
+                        }
+                    }, 300);
+                }, 4000); // Increased duration for toast
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (!targetId || targetId === "#" || !targetId.startsWith("#") || targetId.length === 1) {
+                        return;
+                    }
+                    e.preventDefault();
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const header = document.getElementById('main-header');
+                        let headerOffset = 0;
+                        if(header && !header.classList.contains('header-hidden') && typeof header.offsetHeight === 'number'){
+                           headerOffset = header.offsetHeight;
+                        }
+
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Hero Carousel Functionality
+            const carouselImagesContainer = document.getElementById('carousel-images');
+            const dotsContainer = document.getElementById('carousel-dots-container');
+            const prevButton = document.getElementById('prev-slide-btn');
+            const nextButton = document.getElementById('next-slide-btn');
+            const carouselMainContainer = document.getElementById('carousel-main-container');
+
+            if (carouselImagesContainer && dotsContainer && prevButton && nextButton && carouselMainContainer) {
+                const slides = Array.from(carouselImagesContainer.children);
+                const slideCount = slides.length;
+                let currentIndex = 0;
+                let autoPlayInterval;
+                let resumeAutoplayTimeout;
+
+                if (slideCount > 0) {
+                    for (let i = 0; i < slideCount; i++) {
+                        const dot = document.createElement('button');
+                        dot.className = 'w-3 h-3 bg-white/40 rounded-full cursor-pointer transition-all duration-300 ease-out hover:bg-white/70';
+                        dot.addEventListener('click', () => {
+                            goToSlide(i);
+                            resetAutoPlay();
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                    const dots = Array.from(dotsContainer.children);
+
+                    function updateCarousel() {
+                        if (slideCount > 0) {
+                           carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                           if(dots && dots.length > 0){
+                                dots.forEach((dot, index) => {
+                                    dot.classList.toggle('bg-green-500', index === currentIndex);
+                                    dot.classList.toggle('scale-125', index === currentIndex);
+                                    dot.classList.toggle('bg-white/40', index !== currentIndex);
+                                });
+                           }
+                        }
+                    }
+
+                    function goToSlide(index) {
+                        if (slideCount === 0) return;
+                        currentIndex = (index + slideCount) % slideCount;
+                        updateCarousel();
+                    }
+
+                    function nextSlide() { goToSlide(currentIndex + 1); }
+                    function prevSlide() { goToSlide(currentIndex - 1); }
+
+                    function startAutoPlay(interval = 5000) {
+                        stopAutoPlay();
+                        if (slideCount > 0) {
+                           autoPlayInterval = setInterval(nextSlide, interval);
+                        }
+                    }
+
+                    function stopAutoPlay() {
+                        clearInterval(autoPlayInterval);
+                        clearTimeout(resumeAutoplayTimeout);
+                    }
+
+                    function resetAutoPlay(interval = 5000) {
+                        stopAutoPlay();
+                        startAutoPlay(interval);
+                    }
+
+                    prevButton.addEventListener('click', () => {
+                        prevSlide();
+                        resetAutoPlay();
+                    });
+                    nextButton.addEventListener('click', () => {
+                        nextSlide();
+                        resetAutoPlay();
+                    });
+
+                    updateCarousel();
+                    startAutoPlay();
+
+                    carouselMainContainer.addEventListener('mouseenter', () => {
+                        stopAutoPlay();
+                    });
+
+                    carouselMainContainer.addEventListener('mouseleave', () => {
+                        clearTimeout(resumeAutoplayTimeout);
+                        resumeAutoplayTimeout = setTimeout(() => {
+                            startAutoPlay();
+                        }, 300);
+                    });
+                }
+            }
+
+            // Navbar scroll effects
+            const header = document.getElementById('main-header');
+            const logo = document.getElementById('site-logo');
+            let lastScrollTop = 0;
+            const scrollThreshold = 50;
+            const hideThreshold = 100;
+
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                    if (currentScroll > scrollThreshold) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+
+                    if (currentScroll > lastScrollTop && currentScroll > hideThreshold) {
+                        header.classList.add('header-hidden');
+                        if (logo) logo.classList.add('logo-hidden');
+                    } else {
+                         if (currentScroll < lastScrollTop || currentScroll <= hideThreshold) {
+                            header.classList.remove('header-hidden');
+                            if (logo) logo.classList.remove('logo-hidden');
+                        }
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                }, false);
+            }
+
+            // Intersection Observer for general scroll-triggered animations
+            const animatedElements = document.querySelectorAll('.scroll-animate-hidden');
+            if (animatedElements.length > 0) {
+                 const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.15 // Trigger when 15% of the element is visible
+                };
+
+                const observer = new IntersectionObserver((entries, observerInstance) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('scroll-animate-hidden');
+                            entry.target.classList.add('scroll-animate-visible');
+
+                            // Number counting animation for metric cards
+                            if (entry.target.classList.contains('metric-card')) {
+                                const valueElement = entry.target.querySelector('[data-target]');
+                                if (valueElement) {
+                                    const target = parseInt(valueElement.dataset.target);
+                                    const duration = 2000; // 2 seconds
+                                    let start = 0;
+                                    const increment = target / (duration / 16); // approx 60fps
+
+                                    function animateCount() {
+                                        start += increment;
+                                        if (start < target) {
+                                            valueElement.textContent = Math.ceil(start).toLocaleString();
+                                            requestAnimationFrame(animateCount);
+                                        } else {
+                                            valueElement.textContent = target.toLocaleString();
+                                            if (target === 15) valueElement.textContent += "M+";
+                                            if (target === 121) valueElement.textContent += " Cr+";
+                                            if (target === 98) valueElement.textContent += "%";
+                                        }
+                                    }
+                                    animateCount();
+                                }
+                            }
+                            observerInstance.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                animatedElements.forEach(item => {
+                    observer.observe(item);
+                });
+            }
+
+            // FAQs Accordion Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            if (faqItems.length > 0) {
+                faqItems.forEach(item => {
+                    const questionButton = item.querySelector('.faq-question');
+                    const answerPanel = item.querySelector('.faq-answer');
+                    const icon = item.querySelector('.faq-icon');
+
+                    if (questionButton && answerPanel && icon) {
+                        questionButton.addEventListener('click', () => {
+                            const isActive = item.classList.toggle('active');
+                            if (isActive) {
+                                answerPanel.style.maxHeight = answerPanel.scrollHeight + "px";
+                            } else {
+                                answerPanel.style.maxHeight = '0px';
+                            }
+                        });
+                    }
+                });
+            }
+
+            // FAQ Modal Functionality
+            const learnMoreFaqBtn = document.getElementById('learn-more-faq-btn');
+            const faqModalOverlay = document.getElementById('faq-modal-overlay');
+            const faqModalCloseBtn = document.getElementById('faq-modal-close-btn');
+            const moreFaqsContainer = document.getElementById('more-faqs-container');
+
+            if (learnMoreFaqBtn && faqModalOverlay && faqModalCloseBtn && moreFaqsContainer) {
+                const moreFaqs = [
+                    { q: "What is the typical timeline for the entire application process?", a: "The timeline can vary, but we generally recommend starting 8-12 months before your desired intake. This allows ample time for university selection, application preparation, and visa processing." },
+                    { q: "How does Global Excellence help in building a strong profile?", a: "We provide comprehensive profile-building guidance, including advice on internships, volunteer work, and extracurricular activities that align with your academic goals." },
+                    { q: "Do you provide support for accommodation?", a: "Yes, we offer guidance and resources to help you find suitable student accommodation, including dormitories and private rentals." },
+                    { q: "What kind of post-admission support do you offer?", a: "Our support continues after you receive your admission. We provide pre-departure briefings, guidance on travel arrangements, and connect you with our student network." },
+                    { q: "Can I apply to universities that are not your partners?", a: "Absolutely. While we have a strong network of partner universities, our services are not limited to them. We can assist you with applications to any university worldwide." },
+                    { q: "How much are your consultancy fees?", a: "Our fee structure varies depending on the services you require. We offer a free initial consultation to discuss your needs and provide a transparent quote." },
+                    { q: "Do you help with dependent visas?", a: "Yes, we can provide assistance and guidance for dependent visa applications for your spouse or children." },
+                    { q: "What if my student visa application is rejected?", a: "While we have a high success rate, in the rare case of a visa rejection, we will analyze the reasons and assist you in reapplying if feasible." },
+                    { q: "How do I know which country is best for my field of study?", a: "Our counselors will provide detailed information on the strengths of different countries for your specific field, considering factors like research opportunities, job prospects, and quality of education." },
+                    { q: "Do you offer any guarantees for admission or scholarships?", a: "We do not offer guarantees, as the final decision rests with the universities. However, our expertise and guidance significantly enhance your chances of success." },
+                    // Add 40 more dummy FAQs
+                    ...Array.from({ length: 40 }, (_, i) => ({ q: `Sample Question ${i + 11}`, a: `This is a sample answer for question ${i + 11}. Our counselors can provide more detailed information during your consultation.` }))
+                ];
+
+                function populateFaqs() {
+                    moreFaqsContainer.innerHTML = ''; // Clear existing
+                    moreFaqs.forEach(faq => {
+                        const faqElement = document.createElement('div');
+                        faqElement.className = 'faq-item bg-gray-50 rounded-lg';
+                        faqElement.innerHTML = `
+                            <button class="faq-question w-full flex justify-between items-center text-left p-4 focus:outline-none">
+                                <span class="text-lg font-medium text-gray-800">${faq.q}</span>
+                                <i class="faq-icon fas fa-chevron-down text-green-500 transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-4 text-gray-700 leading-relaxed">
+                                <p class="pt-1">${faq.a}</p>
+                            </div>
+                        `;
+                        moreFaqsContainer.appendChild(faqElement);
+                    });
+
+                    // Re-attach event listeners for the new accordion items in the modal
+                    document.querySelectorAll('#more-faqs-container .faq-item').forEach(item => {
+                        const questionButton = item.querySelector('.faq-question');
+                        const answerPanel = item.querySelector('.faq-answer');
+                        if (questionButton && answerPanel) {
+                            questionButton.addEventListener('click', () => {
+                                const isActive = item.classList.toggle('active');
+                                if (isActive) {
+                                    answerPanel.style.maxHeight = answerPanel.scrollHeight + "px";
+                                    answerPanel.style.paddingTop = '0.5rem';
+                                    answerPanel.style.paddingBottom = '1rem';
+                                } else {
+                                    answerPanel.style.maxHeight = '0px';
+                                    answerPanel.style.paddingTop = '0';
+                                    answerPanel.style.paddingBottom = '0';
+                                }
+                            });
+                        }
+                    });
+                }
+
+                learnMoreFaqBtn.addEventListener('click', () => {
+                    populateFaqs();
+                    faqModalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+
+                function closeModal() {
+                    faqModalOverlay.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore background scrolling
+                }
+
+                faqModalCloseBtn.addEventListener('click', closeModal);
+                faqModalOverlay.addEventListener('click', (e) => {
+                    if (e.target === faqModalOverlay) { // Close if clicked on overlay background
+                        closeModal();
+                    }
+                });
+            }
+
+            // ======== UPDATED COUNTRIES SCRIPT START ========
+            const countriesGrid = document.getElementById('countries-grid');
+            const countryModalOverlay = document.getElementById('country-modal-overlay');
+            const countryModalHeader = document.getElementById('country-modal-header');
+            const countryModalDataContainer = document.getElementById('country-modal-data-container');
+            const countryModalCloseBtn = document.getElementById('country-modal-close-btn');
+
+            const countriesData = {
+                 'usa': {
+                    name: 'United States (USA)',
+                    img: 'images/usa.webp',
+                    content: `<div><h2>United States (USA)</h2><br><h4>Important Information for Students</h4><p>The USA remains a top choice for students from Telangana and Andhra Pradesh, especially for MS and MBA programs. The visa process requires meticulous preparation, including securing an I-20 form from the university and proving strong financial standing and intent to return to India. Given the high volume of applicants from Hyderabad, visa interviews at the US Consulate can be demanding. Thorough preparation for the visa interview is crucial for success. Post-study work options like the Optional Practical Training (OPT) offer valuable experience for graduates.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>What is an I-20 and why is it essential for a US student visa?</strong><p>The I-20 is a certificate of eligibility issued by your university that proves you are admitted to a full-time study program and have sufficient funds. It is a mandatory document for your F-1 student visa application and interview.</p></li><li><strong>How much financial proof is required for a US visa for a student from Hyderabad?</strong><p>You must show sufficient liquid funds to cover your first year of tuition and living expenses. Given the scrutiny for applicants from this region, having robust and well-documented financial proof is critical.</p></li><li><strong>What are common questions asked in the F-1 visa interview at the Hyderabad consulate?</strong><p>Questions typically focus on your choice of university and program, your financial capacity, and your ties to India to ensure you intend to return after your studies.</p></li><li><strong>How can a consultant in Hyderabad help me prepare for the US visa interview?</strong><p>A consultant can provide mock interviews tailored to the specific questions and expectations at the Hyderabad consulate, helping you build confidence and articulate your answers clearly.</p></li><li><strong>What is OPT and how can I use it to work after my MS?</strong><p>Optional Practical Training (OPT) allows F-1 students to work for up to 12 months (with a possible 24-month extension for STEM fields) in a job directly related to their major area of study.</p></li><li><strong>Are there specific scholarships for students from Telangana or Andhra Pradesh for US universities?</strong><p>While there are no state-specific scholarships, a consultant can help you find and apply for a wide range of university-specific and external scholarships available to Indian students.</p></li><li><strong>Is it better to take the GRE or GMAT for an MBA in the USA?</strong><p>Many US business schools now accept both the GRE and GMAT. The choice depends on your strengths and the specific requirements of the universities you are targeting.</p></li><li><strong>What are the top universities for MS in Computer Science in the USA?</strong><p>Top universities include Carnegie Mellon, MIT, Stanford, and UC Berkeley. A consultant can help you create a balanced list of ambitious and safe universities based on your profile.</p></li><li><strong>How can I find accommodation in the USA before I travel?</strong><p>Most universities offer on-campus housing, and there are many online platforms for off-campus apartments. It's advisable to start looking early, and we can guide you on the best options.</p></li><li><strong>As a student from Andhra Pradesh, what should I know about the visa process?</strong><p>The process is the same as for any other Indian student. However, being well-prepared with all your documents and for the interview is key, and a local consultancy can provide region-specific insights.</p></li></ol></div>`
+                },
+                'uk': {
+                    name: 'UK & Scotland',
+                    img: 'images/oxford university.webp',
+                    content: `<div><h2>United Kingdom (UK) & Scotland</h2><br><h4>Important Information for Students</h4><p>The UK, including Scotland, is a popular choice for higher education. The visa process involves securing a Confirmation of Acceptance for Studies (CAS) letter from your university. While India is on the UK's "low-risk" list, which might mean less financial documentation is needed upfront, UK Visas and Immigration (UKVI) can still request full proof of funds. Additionally, some students may face a credibility interview to verify their intentions are genuine. Therefore, thorough preparation of financial documents and for the interview is highly recommended. For graduates, the UK offers a Graduate Route visa, which is a significant post-study work opportunity.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>What is a CAS letter and why is it crucial for a UK student visa?</strong><p>A CAS (Confirmation of Acceptance for Studies) is an electronic document with a unique reference number from your university. It confirms you have an unconditional offer and is mandatory for your student visa application.</p></li><li><strong>Do I need to show financial proof for a UK student visa since India is on the 'low-risk' country list?</strong><p>While you may not need to submit financial documents with your initial application due to the "differentiation arrangements," UKVI can request them at any point. It is critical to have the required funds available and the documents ready before you apply.</p></li><li><strong>What kind of questions are asked in a UK student visa credibility interview?</strong><p>Interview questions focus on your reasons for choosing the UK, your specific course and university, your finances, and your future plans to ensure you are a genuine student.</p></li><li><strong>How can I prepare for the credibility interview while applying from Hyderabad?</strong><p>Preparation involves researching your course thoroughly and being ready to explain your study plans. A consultant can provide mock interviews focused on common questions asked of applicants from Hyderabad to help you prepare.</p></li><li><strong>What is the UK Graduate Route visa and how does it benefit Indian students?</strong><p>The Graduate Route is a post-study work visa that allows eligible Indian students who have completed a degree in the UK to stay and work for two years, providing valuable international work experience.</p></li><li><strong>What is the Immigration Health Surcharge (IHS) and how is it calculated?</strong><p>The IHS is a mandatory fee that gives you access to the UK's National Health Service. The total amount you pay depends on the length of your visa.</p></li><li><strong>Are there specific scholarships for Indian students wanting to study in Scotland?</strong><p>Yes, many universities in Scotland offer scholarships for Indian students. A consultant can help you find and apply for scholarships relevant to your specific course.</p></li><li><strong>What is the estimated cost of living for a student from Hyderabad in London versus other UK cities?</strong><p>The cost of living is significantly higher in London compared to other UK cities. A detailed financial plan tailored for students from your region should be prepared.</p></li><li><strong>Where can I find an IELTS for UKVI test center in Hyderabad?</strong><p>There are several approved centers in Hyderabad that offer the specific IELTS for UKVI test required for your visa application.</p></li><li><strong>As a student from Andhra Pradesh, how can a consultancy help with my UK visa application?</strong><p>A consultancy can offer end-to-end support, from university selection in the UK and Scotland to ensuring your CAS is correct and you are fully prepared for a potential credibility interview.</p></li></ol></div>`
+                },
+                'germany': {
+                    name: 'Germany',
+                    img: 'images/germany.webp', 
+                    content: `<div><h2>Germany</h2><br><h4>Important Information for Students</h4><p>Germany is highly attractive to students from Telangana and Andhra Pradesh due to its world-class public universities that often charge low or no tuition fees. However, the German student visa process is uniquely complex for Indian students. It involves two mandatory steps before the visa application: obtaining an APS (Akademische Prüfstelle) certificate and depositing funds into a blocked account. The APS certificate, which verifies your academic documents, can have a long processing time. The blocked account requires a deposit of over €11,000 to cover living expenses. All applications from Hyderabad are processed through VFS Global but fall under the jurisdiction of the German Consulate in Chennai. Given these intricate steps, specialized guidance is crucial to avoid delays.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>What is the APS certificate and why is it mandatory for a German student visa?</strong><p>The APS (Akademische Prüfstelle) certificate verifies the authenticity of your academic documents. It is a mandatory prerequisite for Indian students applying for a German student visa.</p></li><li><strong>How long is the processing time for the APS certificate for students from Telangana?</strong><p>The processing time can vary and may face delays. It is crucial to apply for it early. A consultant can help ensure your application is complete to minimize delays.</p></li><li><strong>What is a German blocked account and how much money do I need to deposit?</strong><p>It is a special bank account where you must deposit enough money to cover your living expenses for one year. The required amount is set by the German government and is currently over €11,000.</p></li><li><strong>Which are the best blocked account providers for Indian students?</strong><p>Providers like Expatrio and Fintiba are popular in India. A consultant can help you compare their fees and processes to choose the best option.</p></li><li><strong>I am from Hyderabad. Where do I apply for my German student visa?</strong><p>You will book an appointment and submit your documents at the VFS Global center in Hyderabad. Your application is then processed by the German Consulate General in Chennai, which has jurisdiction over Telangana.</p></li><li><strong>Can I study an engineering Master's in Germany in English with no tuition fees?</strong><p>Yes, many German public universities offer English-taught Master's programs, especially in engineering, with no or low tuition fees, and consultants in Hyderabad can assist with this.</p></li><li><strong>Do I need to learn German to get a student visa?</strong><p>While your course may be in English, learning basic German (A1 level) is highly recommended and may be required. There are German language courses available in Hyderabad to meet this need.</p></li><li><strong>What is the German student visa interview at VFS Hyderabad like?</strong><p>The appointment at VFS is primarily for document and biometrics submission. It is not an in-depth interview, as the decision is made by the consulate based on your submitted documents.</p></li><li><strong>What should I do if my APS certificate verification is delayed?</strong><p>If your APS verification is delayed, you must follow up with them. A consultant can advise on how to follow up and explain common reasons for delays affecting students from Telangana and Andhra Pradesh.</p></li><li><strong>How can a consultant help with the complex German visa process?</strong><p>A specialized consultancy provides end-to-end guidance, covering the APS application, choosing a blocked account provider, booking the VFS Hyderabad appointment, and compiling the correct document checklist for the Chennai consulate.</p></li></ol></div>`
+                },
+                'australia': {
+                    name: 'Australia',
+                    img: 'images/sydney.webp',
+                    content: `<div><h2>Australia</h2><br><h4>Important Information for Students</h4><p>Australia is a top-tier destination known for its world-class universities, high quality of life, and vibrant cities. For Indian students, a major advantage is the ability to work part-time to help manage living costs. The post-study work visa options also provide an excellent opportunity for graduates to gain international work experience. The primary intakes for Australian universities are in February and July, requiring students to plan their application process well in advance. The country offers a safe and welcoming environment with a strong support system for international students.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>What are the main intakes for universities in Australia?</strong><p>The main academic intakes are typically in February (Semester 1) and July (Semester 2), though some universities may offer other intakes as well.</p></li><li><strong>Can I work part-time on a student visa in Australia?</strong><p>Yes, international students are generally allowed to work part-time for a set number of hours per week during their studies and full-time during scheduled breaks.</p></li><li><strong>What are the post-study work visa options for Indian students?</strong><p>Australia offers a Temporary Graduate visa (subclass 485) which allows eligible graduates to stay and work for two years or more, depending on their qualification.</p></li><li><strong>What is the approximate cost of studying a Master's degree in Australia?</strong><p>The cost varies significantly by university and city but is generally considered to be in the higher range. Detailed financial planning is essential.</p></li><li><strong>Which are the most popular courses in Australia for international students?</strong><p>Business, management, IT, engineering, and healthcare are consistently popular fields of study among international students in Australia.</p></li><li><strong>How do I apply for a student visa for Australia from Hyderabad?</strong><p>The student visa application is lodged online. A consultant can help you prepare the necessary documents, including your Confirmation of Enrolment (CoE), financial proof, and health insurance.</p></li><li><strong>What are the English language requirements (IELTS/PTE) for Australian universities?</strong><p>Most universities will require a minimum overall IELTS score of 6.5 for postgraduate courses, or an equivalent score in other tests like PTE or TOEFL.</p></li><li><strong>Is it easy to find accommodation in cities like Sydney and Melbourne?</strong><p>Finding accommodation in major cities can be competitive. It's advisable to start searching early through university housing services or private rental websites.</p></li><li><strong>What is Overseas Student Health Cover (OSHC)?</strong><p>OSHC is a mandatory health insurance that all international students must have for the entire duration of their visa in Australia.</p></li><li><strong>How can a consultant help me choose the right university?</strong><p>A consultant can assess your academic profile, help you choose a university and course that align with your career goals, and assist you through the entire application and visa process.</p></li></ol></div>`
+                },
+                'ireland': {
+                    name: 'Ireland',
+                    img: 'images/dublin.webp',
+                    content: `<div><h2>Ireland</h2><br><h4>Important Information for Students</h4><p>Ireland, often called the "Emerald Isle," has rapidly become a premier destination for international students, especially those in the fields of technology and science. It is home to the European headquarters of numerous global tech giants like Google, Meta, Apple, and Microsoft, earning it the nickname "Silicon Valley of Europe." This thriving tech ecosystem provides unparalleled internship and job opportunities for graduates. As an English-speaking country within the EU, Ireland offers a seamless cultural and academic transition for students from India. Its universities, such as Trinity College Dublin and University College Dublin, are globally recognized for their high-quality, research-led education. A major advantage is the two-year post-study work visa available to graduates, allowing them to gain valuable international work experience. Combined with its reputation for being a safe, friendly, and welcoming country with a rich cultural history, Ireland presents a compelling and strategic choice for your higher education.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Why is Ireland a good choice for students interested in a tech career?</strong><p>Ireland is a major European tech hub with the headquarters of many top global companies. This provides students with excellent exposure, networking opportunities, and strong job prospects in fields like software development, data analytics, and cybersecurity after graduation.</p></li><li><strong>What are the post-study work visa rules for international students in Ireland?</strong><p>Eligible international students who complete a degree at NFQ Level 8 (like an Honours Bachelor's Degree) or above can avail of the Third Level Graduate Scheme. This allows them to stay in Ireland for up to 24 months to seek employment.</p></li><li><strong>Is Ireland an expensive country for students from India?</strong><p>The cost of living and tuition in Ireland can be high, particularly in cities like Dublin. However, it is often considered more affordable than the UK. Careful financial planning is essential, with estimated annual living costs ranging from €10,000 to €15,000.</p></li><li><strong>Are Irish university degrees recognized globally?</strong><p>Yes, degrees from Irish higher education institutions are highly respected and recognized by employers and academic institutions worldwide for their quality and strong research focus.</p></li><li><strong>What are the main English language requirements for admission?</strong><p>Most universities require an overall IELTS score of 6.5 or equivalent (like TOEFL or PTE) for postgraduate courses, with no individual band score below 6.0.</p></li><li><strong>How can a consultant in Hyderabad help me apply to top Irish universities like Trinity College Dublin or UCD?</strong><p>A consultant can provide expert guidance on the specific and competitive application requirements for top universities, help in crafting a strong Statement of Purpose, and ensure your application highlights your strengths to maximize your chances of admission.</p></li><li><strong>What are the most popular Master's programs in Ireland?</strong><p>Popular programs for Indian students include Data Analytics, Computer Science, Business Analytics, Pharmaceutical Sciences, Civil Engineering, and Finance.</p></li><li><strong>Can I work part-time during my studies?</strong><p>Yes, students on a Stamp 2 visa are allowed to work up to 20 hours per week during the academic semester and 40 hours per week during designated holiday periods.</p></li><li><strong>What are the accommodation options for students in Dublin and other cities?</strong><p>Options include on-campus university halls (which are limited and in high demand), private student accommodation complexes, and shared apartments or houses in the private rental market. It is crucial to start looking for accommodation very early.</p></li><li><strong>How is the student life and culture in Ireland?</strong><p>Ireland is known for its friendly, safe, and welcoming culture. Students can enjoy a vibrant social life, rich history and music, beautiful natural landscapes, and a strong sense of community.</p></li></ol></div>`
+                },
+                'netherlands': {
+                    name: 'Netherlands',
+                    img: 'images/amsterdam.webp',
+                    content: `<div><h2>Netherlands</h2><br><h4>Important Information for Students</h4><p>The Netherlands is a world leader in higher education, renowned for its innovative "Problem-Based Learning" (PBL) teaching style. This student-centric approach focuses on teamwork, critical thinking, and solving real-world problems. With over 2,100 programs taught entirely in English, it is one of the most accessible countries for international students in continental Europe. The Dutch are known for their extremely high English proficiency, making daily life and integration smooth and easy. Located at the heart of Europe, the Netherlands serves as a perfect base for traveling and exploring the continent. The country is also known for its tolerant, open-minded, and multicultural society, offering a safe and welcoming environment. Upon graduation, students can apply for a one-year "Orientation Year" visa, which allows them to search for a job or start a business, making it a very attractive option for launching a global career.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Do I need to speak Dutch to study in the Netherlands?</strong><p>No, it is not necessary for your studies. The Netherlands has one of the largest offerings of English-taught programs in mainland Europe, and nearly everyone speaks English fluently, making it very easy to live and study there.</p></li><li><strong>What is "Problem-Based Learning" (PBL) in Dutch universities?</strong><p>PBL is an interactive teaching method where you work in small groups on real-life case studies. It is designed to develop practical skills like teamwork, independent research, and problem-solving, rather than just memorizing information from lectures.</p></li><li><strong>What are the average costs for tuition and living?</strong><p>For non-EU students, tuition fees typically range from €8,000 to €20,000 per year for a Master's program. The estimated monthly cost of living is between €900 and €1,200, depending on your lifestyle and city.</p></li><li><strong>What are the post-study work options?</strong><p>Graduates can apply for a residence permit for an "orientation year," which allows them to stay in the Netherlands for up to one year to find a job or start a business.</p></li><li><strong>How can a consultant help with the 'Studielink' application system?</strong><p>Studielink is the centralized online application system for Dutch universities. A consultant can guide you through the registration process, ensure you meet all deadlines, and help you manage applications for multiple universities correctly.</p></li><li><strong>Is finding housing difficult in cities like Amsterdam?</strong><p>Yes, finding housing can be challenging, especially in popular student cities like Amsterdam, Utrecht, and Delft. It is highly recommended that you start your search as soon as you receive your admission offer.</p></li><li><strong>What are the popular fields of study in the Netherlands?</strong><p>Popular fields include Engineering (especially water management), Business and Economics, Computer Science, Social Sciences, and Art and Design.</p></li><li><strong>Can I work part-time while studying in the Netherlands?</strong><p>Yes, but non-EU students need a work permit and are allowed to work for a maximum of 16 hours per week during the academic year or full-time during the summer months (June to August).</p></li><li><strong>Are there scholarships available for Indian students?</strong><p>Yes, many scholarships are available, including the Holland Scholarship, Orange Tulip Scholarship (specifically for Indians), and various university-specific scholarships that can significantly reduce costs.</p></li><li><strong>Is the Netherlands a welcoming country for international students?</strong><p>Absolutely. The Netherlands is known for its tolerant, diverse, and international society. It is considered a very safe and welcoming place for students from all backgrounds.</p></li></ol></div>`
+                },
+                'france': {
+                    name: 'France',
+                    img: 'images/paris.webp',
+                    content: `<div><h2>France</h2><br><h4>Important Information for Students</h4><p>France is a popular destination known for its English-taught programs and post-study work permits, which are key attractions for Indian students. There is a notable demand for French education consultants in Hyderabad, as seen on local directories like Justdial. While pursuing a Master's degree, students should carefully consider the cost of living, which can be particularly high in Paris. Seeking guidance can help in navigating the visa process and finding suitable universities and scholarships.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Can I study in France if I don't speak French?</strong><p>Yes, many universities in France offer programs, especially at the Master's level, that are taught entirely in English.</p></li><li><strong>What is the approximate cost of a Master's degree in France for an Indian student?</strong><p>The cost varies between universities and programs. A consultant can provide a detailed breakdown of tuition fees to help you plan your budget.</p></li><li><strong>Are there post-study work visa options in France?</strong><p>Yes, France offers a post-study work permit, which is a major benefit for graduates looking to gain international work experience.</p></li><li><strong>What are the estimated living expenses for a student from Telangana in a city like Paris?</strong><p>The cost of living is a significant factor, with expenses in Paris being considerably higher than in other French cities.</p></li><li><strong>How can a consultant in Hyderabad help with my student visa for France?</strong><p>Local consultants in Hyderabad are available to assist with the entire process, reflecting the local demand for these services.</p></li><li><strong>Are scholarships available for Indian students in France?</strong><p>Yes, scholarships are available. Detailed information on finding and applying for these can be found through resources like Collegedunia.</p></li><li><strong>What are the key admission requirements for a Master's in France?</strong><p>Admission requirements typically include a relevant Bachelor's degree, proof of language proficiency, and a strong application file with a statement of purpose.</p></li><li><strong>Can I work part-time while studying in France?</strong><p>Yes, international students in France are generally allowed to work part-time to help support their expenses.</p></li><li><strong>How popular is France as a study destination for students from Hyderabad?</strong><p>Local directories like Justdial show a significant number of consultants in Hyderabad specializing in France, indicating a strong interest from the local student community.</p></li><li><strong>What is the visa processing time?</strong><p>The visa processing time can vary. It is always recommended to apply well in advance of your course start date.</p></li></ol></div>`
+                },
+                'italy': {
+                    name: 'Italy',
+                    img: 'images/italy.webp',
+                    content: `<div><h2>Italy</h2><br><h4>Important Information for Students</h4><p>Italy is a popular destination for students from Andhra Pradesh and Telangana, particularly for specialized fields like fashion design. Local directories show a significant demand for Italy education consultants in both Hyderabad and Vijayawada. When planning your studies, it's important to prepare for the specific student visa requirements and gather all necessary documentation.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Why is Italy a popular choice for students from Hyderabad?</strong><p>Italy is especially popular for specific fields like fashion design, and there is a high demand for education consultants specializing in Italy in Hyderabad.</p></li><li><strong>Are there visa consultants for Italy in Vijayawada?</strong><p>Yes, local directories show that there are popular overseas education consultants for Italy available in Vijayawada, catering to students from Andhra Pradesh.</p></li><li><strong>What fields of study is Italy known for?</strong><p>Italy is world-renowned for its programs in fashion design, art, architecture, and other creative fields.</p></li><li><strong>How can I get help with the Italian student visa process?</strong><p>You can seek assistance from visa consultants who specialize in Italy. These services are available in both Hyderabad and Vijayawada.</p></li><li><strong>What are the general requirements for an Italian student visa?</strong><p>General requirements include an admission letter from an Italian institution, proof of financial stability, accommodation proof, and valid travel/health insurance.</p></li><li><strong>Do I need to speak Italian to study in Italy?</strong><p>Many Italian universities now offer programs taught in English to attract international students, especially at the Master's level.</p></li><li><strong>Is it expensive to study in Italy?</strong><p>The cost can be more affordable compared to other Western European nations, especially at public universities.</p></li><li><strong>Can I work while studying in Italy?</strong><p>International students are generally permitted to work part-time (up to 20 hours per week) during their studies.</p></li><li><strong>What kind of support can I expect from a consultant?</strong><p>A consultant can guide you in selecting the right university, assist with application paperwork, and help you prepare for the visa process.</p></li><li><strong>Where do I apply for the visa?</strong><p>You will need to apply at the designated Italian visa application center that holds jurisdiction over your state (Telangana or Andhra Pradesh).</p></li></ol></div>`
+                },
+                'spain': {
+                    name: 'Spain',
+                    img: 'images/spain.webp',
+                    content: `<div><h2>Spain</h2><br><h4>Important Information for Students</h4><p>Spain is recognized as an affordable study destination, making it an attractive option for students from Telangana. There is a demand for consultants in Hyderabad who specialize in Spanish student visas and university admissions. Students often seek guidance for finding affordable universities and understanding the specific student visa requirements for Indian citizens.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Why is Spain considered an affordable study destination?</strong><p>Spain is often more affordable in terms of both tuition fees and living costs compared to many other Western European countries.</p></li><li><strong>Are there visa consultants for Spain in Hyderabad?</strong><p>Yes, there are visa assistance services and overseas education consultants specializing in Spain available in Hyderabad.</p></li><li><strong>What are the general student visa requirements for Indian students?</strong><p>The requirements typically include proof of admission from a Spanish institution, proof of sufficient funds, medical insurance, and other supporting documents.</p></li><li><strong>Can I find affordable universities in Spain?</strong><p>Yes, one of the key drivers for students choosing Spain is the availability of affordable universities. A consultant can help you identify them.</p></li><li><strong>Do I need to know Spanish to study there?</strong><p>While many universities offer programs in English, learning Spanish is highly beneficial for daily life and cultural integration.</p></li><li><strong>What kind of programs are popular in Spain?</strong><p>Spain offers a wide range of programs, with affordable MBA programs being one of the options for Indian students.</p></li><li><strong>How can a consultant in Telangana help me with my application?</strong><p>A consultant can provide end-to-end guidance, from selecting an affordable university to assisting with the specific visa documentation required for Spain.</p></li><li><strong>What is the student life like in Spain?</strong><p>Spain is known for its vibrant culture, sunny climate, and lively cities, offering a rich and enjoyable experience for students.</p></li><li><strong>Can I travel within Europe with a Spanish student visa?</strong><p>Yes, as Spain is part of the Schengen Area, a Spanish student visa allows you to travel to other Schengen countries.</p></li><li><strong>Are there part-time work opportunities?</strong><p>International students are generally allowed to work part-time while studying in Spain, subject to certain regulations.</p></li></ol></div>`
+                },
+                'poland': {
+                    name: 'Poland',
+                    img: 'IMAGES/poland.webp',
+                    content: `<div><h2>Poland</h2><br><h4>Important Information for Students</h4><p>Poland is a highly attractive study destination for students from Telangana, primarily because it offers a very high student visa success rate for Indians (around 95-96%). This unique selling point provides significant peace of mind. Additionally, the country is known for its affordability, with low-cost MBA programs and a reasonable cost of living. This combination makes Poland a strategic choice for those seeking a quality European education without the high financial burden or visa uncertainty of other nations. There is a strong demand for consultants in Hyderabad who can facilitate this process.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Is it true that Poland has a very high student visa success rate for Indians?</strong><p>Yes, Poland is noted for having an exceptionally high student visa success rate for Indian applicants, around 95-96%.</p></li><li><strong>How does this high visa success rate benefit a student applying from Hyderabad?</strong><p>This provides a significant advantage by reducing the uncertainty and stress associated with the visa process, making Poland a more reliable option.</p></li><li><strong>Are there low-cost MBA programs in Poland for Indian students?</strong><p>Yes, Poland is known for offering affordable MBA programs, which provide a high return on investment for Indian students.</p></li><li><strong>Why is Poland considered an affordable country to study in?</strong><p>Poland is considered affordable because both its university tuition fees and general living costs are significantly lower than in many other Western European countries.</p></li><li><strong>Are there visa agents for Poland in Hyderabad?</strong><p>Yes, there are visa assistance services and education consultants in Hyderabad and Ameerpet who can guide you through the process for Poland.</p></li><li><strong>Can I work part-time while studying in Poland?</strong><p>Yes, international students are generally allowed to work part-time while they are studying in Poland.</p></li><li><strong>Do Polish universities teach in English?</strong><p>Yes, universities in Poland offer a wide variety of programs, including MBA and engineering, that are taught entirely in English.</p></li><li><strong>What are the benefits of studying in Poland for a student from Telangana?</strong><p>The primary benefits are the high visa success rate, the affordability of tuition and living costs, and receiving a European degree.</p></li><li><strong>Can I travel to other Schengen countries with a Polish student visa?</strong><p>Yes, since Poland is a member of the Schengen Area, a student visa allows you to travel to other member countries.</p></li><li><strong>What are the job prospects in Poland after graduation?</strong><p>Poland has a growing economy with opportunities in various sectors, and a Polish degree is recognized across the EU, widening your job search area.</p></li></ol></div>`
+                },
+                'malta': {
+                    name: 'Malta',
+                    img: 'images/malta.webp',
+                    content: `<div><h2>Malta</h2><br><h4>Important Information for Students</h4><p>Malta is an attractive EU destination for students from Hyderabad and Andhra Pradesh because it is an affordable, English-speaking country. The degrees awarded by Maltese institutions are EU-recognized, which is a significant advantage. Local directories indicate a demand for consultants in Hyderabad specializing in Malta, particularly for visa assistance and English language courses.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Why should a student from Hyderabad consider studying in Malta?</strong><p>Malta is an English-speaking, affordable EU destination, and there is a demand for consultants in Hyderabad who can assist with the process.</p></li><li><strong>Are degrees from Malta recognized in other European countries?</strong><p>Yes, a key advantage of studying in Malta is that its degrees are EU-recognized.</p></li><li><strong>Is Malta an affordable country for Indian students?</strong><p>Yes, Malta is noted for being a relatively affordable study destination within the European Union.</p></li><li><strong>Is English the main language of instruction?</strong><p>Yes, English is an official language and widely used in education, making it very accessible for Indian students.</p></li><li><strong>What is the visa processing time from Hyderabad?</strong><p>The visa processing time can vary. A consultant in Hyderabad can provide guidance on the current timelines and help prepare a complete application.</p></li><li><strong>Are there many consultants for Malta in Hyderabad?</strong><p>Yes, local directories show that there are several consultants and visa assistance services for Malta in Hyderabad.</p></li><li><strong>What courses are popular in Malta?</strong><p>English language courses are particularly popular among international students seeking to study in Malta.</p></li><li><strong>Can I travel to other European countries from Malta?</strong><p>Yes, since Malta is part of the Schengen Area, a student visa for Malta allows you to travel to other Schengen countries.</p></li><li><strong>Are there part-time work opportunities?</strong><p>International students are generally permitted to work part-time while pursuing their studies in Malta.</p></li><li><strong>What is the climate like in Malta?</strong><p>Malta has a warm, Mediterranean climate, which is pleasant for most of the year.</p></li></ol></div>`
+                },
+                'georgia': {
+                    name: 'Georgia',
+                    img: 'images/georgia.webp',
+                    content: `<div><h2>Georgia</h2><br><h4>Important Information for Students</h4><p>Georgia has become a key destination for students from Telangana and Andhra Pradesh, primarily due to its affordable MBBS programs and simplified visa rules. The low cost of medical education is a significant draw for many Indian students and their families. There is a strong demand for consultancies in Hyderabad, including in areas like ToliChowki, that specialize in guiding students through the admission and visa process for studying MBBS in Georgia.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Why is Georgia a popular country for Indian students to study MBBS?</strong><p>Georgia is popular because it offers affordable MBBS programs and has simplified visa rules for Indian students.</p></li><li><strong>What are the fees for an MBBS program in Georgia for a student from Andhra Pradesh?</strong><p>The fees for studying MBBS in Georgia are known to be affordable. A consultant can provide a detailed fee structure for different universities.</p></li><li><strong>Are the visa rules for Georgia simplified for Indian students?</strong><p>Yes, Georgia is noted for having simplified visa rules, which makes the application process more straightforward for Indian travelers and students.</p></li><li><strong>Is a Georgian medical degree valid in India?</strong><p>Medical degrees from Georgian universities that are recognized by the WHO and NMC are valid in India, provided the graduate clears the mandatory Foreign Medical Graduate Examination (FMGE) or the upcoming NExT exam.</p></li><li><strong>How can a consultant in ToliChowki help with admission to a Georgian university?</strong><p>A local consultant in ToliChowki can provide specialized guidance for MBBS admissions in Georgia, a service for which there is strong local demand.</p></li><li><strong>What is the medium of instruction for MBBS in Georgia?</strong><p>The MBBS programs designed for international students in Georgia are taught in English.</p></li><li><strong>Are there many consultants in Hyderabad for Georgia?</strong><p>Yes, there is a clear demand, and consultancies in Hyderabad actively guide students for MBBS programs in Georgia.</p></li><li><strong>Is an entrance exam like NEET required for admission?</strong><p>Yes, Indian students must qualify for the NEET exam to be eligible to study medicine abroad and subsequently practice in India.</p></li><li><strong>What is the cost of living like in Georgia?</strong><p>The cost of living in Georgia is generally low, which adds to the country's affordability for a long-term course like MBBS.</p></li><li><strong>How long is the MBBS program in Georgia?</strong><p>The duration of the MD program (equivalent to MBBS) in Georgia is typically six years.</p></li></ol></div>`
+                },
+                'latvia': {
+                    name: 'Latvia',
+                    img: 'images/latvia.webp',
+                    content: `<div><h2>Latvia</h2><br><h4>Important Information for Students</h4><p>Latvia is a viable EU destination for students from Hyderabad, especially those interested in engineering programs. An important procedural detail is that long-stay visa applications, even those from Telangana, are processed via the Latvian Embassy in New Delhi. There is a market for consultants in Hyderabad who can guide students through this specific application route.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>What are the top programs to study in Latvia for Indian students?</strong><p>Latvia is a good option for students looking to pursue engineering studies in Europe.</p></li><li><strong>How do I apply for a Latvian student visa from Hyderabad?</strong><p>The long-stay student visa for Latvia must be processed through the Latvian Embassy in New Delhi, even for applicants from Hyderabad.</p></li><li><strong>Are there visa consultants for Latvia in Hyderabad?</strong><p>Yes, local directories show that there are visa assistance services and education consultants in Hyderabad who can guide you on the process for Latvia.</p></li><li><strong>What is the estimated cost to study engineering in Latvia?</strong><p>The cost of studying in Latvia can be a key consideration. A consultant can provide a detailed breakdown of tuition and living expenses.</p></li><li><strong>Are degrees from Latvia recognized in other EU countries?</strong><p>Yes, since Latvia is a member of the European Union, its degrees are recognized across the EU, offering wider career opportunities.</p></li><li><strong>Are engineering programs taught in English?</strong><p>Yes, universities in Latvia offer engineering programs that are taught in English to cater to international students.</p></li><li><strong>How can a consultant in Hyderabad help with the New Delhi visa process?</strong><p>A consultant in Hyderabad can ensure all your documentation is correctly prepared and aligned with the requirements of the New Delhi embassy, guiding you on the submission process from a distance.</p></li><li><strong>What is student life like in Latvia?</strong><p>Latvia offers a unique cultural experience in the Baltic region, with its capital, Riga, known for its beautiful historic center.</p></li><li><strong>Can I work part-time while studying?</strong><p>Yes, international students are typically permitted to work part-time for a set number of hours alongside their studies.</p></li><li><strong>Can I travel to other Schengen countries with a Latvian student visa?</strong><p>Yes, Latvia is a Schengen country, which allows students with a valid residence permit to travel to other countries in the Schengen Zone.</p></li></ol></div>`
+                },
+                'belgium': {
+                    name: 'Belgium',
+                    img: 'images/belgium.webp',
+                    content: `<div><h2>Belgium</h2><br><h4>Important Information for Students</h4><p>For Indian students interested in technology, Belgium offers viable study options, particularly in IT and Engineering. The long-stay student visa is known as the "D visa". There is a demand for consultants in Hyderabad who can assist with the visa application process and provide guidance on university admissions in Belgium.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Is Belgium a good country for studying IT or Engineering?</strong><p>Yes, Belgium is a viable study destination with strong programs in IT and Engineering for Indian students.</p></li><li><strong>What is the "D visa" for Belgium?</strong><p>The Type D visa is the long-stay visa required for non-EU students who intend to study in Belgium for more than 90 days.</p></li><li><strong>Are there consultants in Hyderabad who can help with a Belgium student visa?</strong><p>Yes, local directories show that there are visa assistance services and overseas education consultants in Hyderabad who specialize in Belgium.</p></li><li><strong>What are the general requirements for a student visa?</strong><p>Requirements typically include proof of admission from a Belgian university, proof of sufficient financial means, a medical certificate, and a certificate of good conduct.</p></li><li><strong>Do I need to learn French or Dutch to study in Belgium?</strong><p>While it's helpful for daily life, many universities in Belgium offer Master's programs taught entirely in English.</p></li><li><strong>What is the cost of studying in Belgium?</strong><p>Tuition fees and living costs are generally considered reasonable compared to some other Western European countries, but this varies by university and city.</p></li><li><strong>Can I work part-time as a student in Belgium?</strong><p>Yes, international students in Belgium are generally allowed to work up to 20 hours per week during the academic year.</p></li><li><strong>What are the post-study work options?</strong><p>After graduation, students can apply for a "search year" residence permit, allowing them to stay in Belgium for 12 months to find a job or start a company.</p></li><li><strong>What is student life like in cities like Brussels or Leuven?</strong><p>Belgium offers a multicultural experience at the heart of Europe. Student cities are vibrant, historic, and offer a high quality of life.</p></li><li><strong>How can a consultant help my application?</strong><p>A consultant can help you choose the right university, prepare your application file according to Belgian standards, and guide you through the specific requirements of the D-visa process.</p></li></ol></div>`
+                },
+                'finland': {
+                    name: 'Finland',
+                    img: 'images/helsinki.webp',
+                    content: `<div><h2>Finland</h2><br><h4>Important Information for Students</h4><p>Finland is known for its high-quality education system, though students from outside the EU/EEA, including India, are required to pay tuition fees. Additionally, the cost of living can be higher than in other European countries. For applicants from Andhra Pradesh and Telangana, visa (residence permit) applications are handled through VFS Global centers. Despite the cost, Finland's excellent academic environment makes it a strong contender for students prioritizing quality.</p><br><h4>Frequently Asked Questions (FAQs)</h4><ol><li><strong>Do Indian students have to pay tuition fees in Finland?</strong><p>Yes, tuition fees are applicable for non-EU/EEA students who are studying for Bachelor's or Master's degrees taught in English.</p></li><li><strong>What is the estimated cost of living in Finland?</strong><p>The cost of living in Finland is generally considered to be higher than in many other European countries, and this should be factored into your financial planning.</p></li><li><strong>How do I apply for a Finnish student visa from Hyderabad?</strong><p>You must submit your residence permit application through a VFS Global center, which has branches in major Indian cities, including Hyderabad.</p></li><li><strong>Are there consultants for Finland in Andhra Pradesh?</strong><p>Yes, local directories show there are overseas education consultants in cities like Vijayawada who can assist with applications for Finland.</p></li><li><strong>What are the most popular fields of study in Finland?</strong><p>Finland's education system is high quality, with popular fields including IT, technology, and design.</p></li><li><strong>Are there scholarships available for Indian students?</strong><p>Yes, Finnish universities offer various scholarship options, often in the form of tuition fee waivers, for talented non-EU students to help offset the costs.</p></li><li><strong>Is it easy to communicate in English in Finland?</strong><p>Yes, English proficiency is very high in Finland, making it easy for international students to navigate academic and daily life.</p></li><li><strong>Can students work part-time in Finland?</strong><p>Yes, international students are permitted to work part-time for a limited number of hours during their studies.</p></li><li><strong>What are the post-study work options in Finland?</strong><p>After graduation, you can apply for a residence permit to search for a job, which is typically granted for up to two years.</p></li><li><strong>How can a consultant help with my application to Finland?</strong><p>A consultant can help you navigate the tuition fee and scholarship system, choose the right university, and prepare your residence permit application for VFS Global.</p></li></ol></div>`
+                }
+            };
+
+            if (countriesGrid && countryModalOverlay && countryModalDataContainer && countryModalCloseBtn) {
+
+                // Populate the country cards on the main page
+                Object.keys(countriesData).forEach(key => {
+                    const country = countriesData[key];
+                    const card = document.createElement('div');
+                    card.className = 'country-card h-80 rounded-xl shadow-lg cursor-pointer group';
+                    card.style.backgroundImage = `url('${country.img}')`;
+                    card.dataset.countryId = key;
+
+                    card.innerHTML = `
+                        <div class="country-card-content h-full flex flex-col justify-end p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">${country.name}</h3>
+                            <button class="know-more-btn text-green-300 font-semibold self-start group-hover:underline">
+                                Know More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    `;
+                    countriesGrid.appendChild(card);
+                });
+
+                // Function to open the modal
+                function openCountryModal(countryId) {
+                    const country = countriesData[countryId];
+                    if (country) {
+                        countryModalHeader.style.backgroundImage = `url('${country.img}')`;
+                        countryModalDataContainer.innerHTML = country.content;
+                        countryModalOverlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+
+                // Function to close the modal
+                function closeCountryModal() {
+                    countryModalOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                // Event listener for the grid (delegation)
+                countriesGrid.addEventListener('click', function(e) {
+                    const card = e.target.closest('.country-card');
+                    if (card && card.dataset.countryId) {
+                        openCountryModal(card.dataset.countryId);
+                    }
+                });
+
+                // Event listeners for closing the modal
+                countryModalCloseBtn.addEventListener('click', closeCountryModal);
+                countryModalOverlay.addEventListener('click', function(e) {
+                    if (e.target === countryModalOverlay) {
+                        closeCountryModal();
+                    }
+                });
+            }
+            // ======== UPDATED COUNTRIES SCRIPT END ========
+
+
+            // AI Essay Assistant Functionality
+            const generateFeedbackBtn = document.getElementById('generate-feedback-btn');
+            const essayInput = document.getElementById('essay-input');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const essayOutputDiv = document.getElementById('essay-output');
+            const outputContent = document.getElementById('output-content');
+
+            if (generateFeedbackBtn && essayInput && loadingIndicator && essayOutputDiv && outputContent) {
+                generateFeedbackBtn.addEventListener('click', async function() {
+                    const essayText = essayInput.value;
+
+                    if (!essayText.trim()) {
+                        showToast('Please enter your essay or statement of purpose to get feedback.', 'error');
+                        return;
+                    }
+
+                    loadingIndicator.classList.remove('hidden');
+                    essayOutputDiv.classList.add('hidden');
+                    outputContent.innerHTML = '';
+
+                    try {
+                        // Simulate API call
+                        await new Promise(resolve => setTimeout(resolve, 2500));
+
+                        // Placeholder feedback
+                        const placeholderFeedback = `
+                            <p class="mb-2"><strong>Overall Impression:</strong> This is a promising start to your essay. You've clearly articulated your interest in [Field of Study].</p>
+                            <p class="mb-2"><strong>Strengths:</strong></p>
+                            <ul class="list-disc list-inside ml-4 mb-2">
+                                <li>Clear articulation of passion for the subject.</li>
+                                <li>Good example provided regarding [Specific Example from Essay].</li>
+                            </ul>
+                            <p class="mb-2"><strong>Areas for Improvement:</strong></p>
+                            <ul class="list-disc list-inside ml-4 mb-2">
+                                <li>Consider elaborating more on how [Specific Experience] shaped your goals. Perhaps provide a more concrete outcome or learning.</li>
+                                <li>The section about [Another Section] could be strengthened with more specific details or a more direct link to your future aspirations at [University Name].</li>
+                                <li>Review for conciseness in the third paragraph; some sentences could be combined or rephrased for greater impact.</li>
+                                <li>Ensure consistent verb tense throughout the essay.</li>
+                            </ul>
+                            <p><strong>Suggestions:</strong></p>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Try to connect your experiences more explicitly to the unique programs or faculty at the universities you're applying to.</li>
+                                <li>Read your essay aloud to catch any awkward phrasing or grammatical errors.</li>
+                            </ul>
+                            <p class="mt-3"><em>This is simulated AI feedback. For actual detailed analysis, consider professional review services.</em></p>
+                        `;
+
+                        outputContent.innerHTML = placeholderFeedback;
+                        essayOutputDiv.classList.remove('hidden');
+
+                    } catch (error) {
+                        outputContent.innerHTML = '<p>An error occurred while generating feedback. Please try again later.</p>';
+                        essayOutputDiv.classList.remove('hidden');
+                        console.error('Error in essay assistant:', error);
+                    } finally {
+                        loadingIndicator.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Contact Form Submission
+             const form = document.getElementById("contact-form-id");
+            const result = document.getElementById("result");
+
+            form.addEventListener("submit", function (e) {
+              e.preventDefault();
+
+              const formData = new FormData(form);
+              const object = Object.fromEntries(formData);
+              const json = JSON.stringify(object);
+
+              result.innerHTML = "Please wait...";
+
+              fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                },
+                body: json,
+              })
+                .then(async (response) => {
+                  let json = await response.json();
+                  if (response.status == 200) {
+                    result.innerHTML = json.message;
+                    result.classList.remove("text-gray-400");
+                    result.classList.add("text-green-500");
+                  } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                     result.classList.remove("text-gray-400");
+                    result.classList.add("text-red-500");
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                  result.innerHTML = "Something went wrong!";
+                })
+                .then(function () {
+                  form.reset();
+                  setTimeout(() => {
+                    result.style.display = "none";
+                  }, 5000);
+                });
+            });
+
+
+        }); // End of DOMContentLoaded
+    </script>
+</body>
+</html>
